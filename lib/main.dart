@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 import 'firebase_options.dart';
@@ -9,6 +10,7 @@ import 'screens/board_screen.dart';
 void main() async {
   usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MagicFixApp());
 }
